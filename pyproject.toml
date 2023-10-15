@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coverage2GHChecksAnnotations"
+authors = [{name = "KOLANICH"}]
+description = "Transforms coverage info from coveragepy database into GitHub annotations."
+readme = "ReadMe.md"
+keywords = ["coverage2GHChecksAnnotations"]
+license = {text = "Unlicense"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	"Operating System :: OS Independent",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.4"
+dependencies = [
+	"coverage", # @ git+https://github.com/nedbat/coveragepy.git
+	"piechart", # @ git+https://codeberg.org/KOLANICH-libs/piechart.py.git
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://codeberg.org/KOLANICH-libs/coverage2GHChecksAnnotations.py"
+
+[project.optional-dependencies]
+reportcoverage = [
+	"miniGHAPI", # @ git+https://codeberg.org/KOLANICH-libs/miniGHAPI.py
+]
+
+[project.scripts]
+coverage2GHChecksAnnotations = "coverage2GHChecksAnnotations.__main__:main"
+coverageReportGHChecksAnnotations = "coverage2GHChecksAnnotations.reportCoverage:main"
+
+[tool.setuptools]
+zip-safe = true
+
+[tool.setuptools.packages]
+find = {namespaces = false}
+
+[tool.setuptools_scm]
