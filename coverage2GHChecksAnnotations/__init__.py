@@ -2,6 +2,9 @@ import typing
 import base64
 from io import StringIO
 from pathlib import Path
+from warnings import warn
+
+warn("We have moved from M$ GitHub to https://codeberg.org/KOLANICH-libs/coverage2GHChecksAnnotations.py , read why on https://codeberg.org/KOLANICH/Fuck-GuanTEEnomo .")
 
 import coverage
 from piechart import piechart
